@@ -51,29 +51,49 @@ void students_average(int n, student_t students[]) {
   printf("Class average: %d\n", total / n);
 }
 
+int calculate_grade_total(student_t student) {
+  int total;
+  total  = student.university.assignment;
+  total += student.university.midterm;
+  total += student.university.final;
+
+  return total / 3;
+}
+
 student_t update_student_record(int field, student_t student) {
   switch(field) {
   case 1:
     printf("Enter student name: ");
     char name[64];
-    scanf("%64[^\n]", name);
+    scanf("\n%64[^\n]", name);
     strcpy(student.personal.name, name);
-    return student;
+  case 2:
+    printf("Enter address: ");
+    char addr[64];
+    scanf("\n%64[^\n]", addr);
+    strcpy(student.personal.address, addr);
+  case 3:
+    printf("Enter phone no: ");
+    char phone[64];
+    scanf("\n%64[^\n]", phone);
+    strcpy(student.personal.contact, phone);
   case 4:
     printf("Enter assignment score: ");
     int input;
     scanf("%d", &input);
     student.university.assignment = input;
-    return student;
+    student.university.total = calculate_grade_total(student);
   case 5:
     printf("Enter midterm score: ");
     scanf("%d", &input);
     student.university.midterm = input;
-    return student;
+    student.university.total = calculate_grade_total(student);
   case 6:
     printf("Enter final score: ");
     scanf("%d", &input);
     student.university.final = input;
-    return student;
+    student.university.total = calculate_grade_total(student);
   }
+
+  return student;
 }

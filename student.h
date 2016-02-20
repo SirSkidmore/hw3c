@@ -1,6 +1,10 @@
 #ifndef STUDENT_H_
 #define STUDENT_H_
 
+/* header files make using structs across multiple files easier 
+ * because including a .c file from multiple places will result
+ * in possible recursive includes */
+
 typedef struct Personal {
   char name[64];
   char contact[20];

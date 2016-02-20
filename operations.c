@@ -67,32 +67,38 @@ student_t update_student_record(int field, student_t student) {
     char name[64];
     scanf("\n%64[^\n]", name);
     strcpy(student.personal.name, name);
+    break;
   case 2:
-    printf("Enter address: ");
-    char addr[64];
-    scanf("\n%64[^\n]", addr);
-    strcpy(student.personal.address, addr);
-  case 3:
     printf("Enter phone no: ");
     char phone[64];
     scanf("\n%64[^\n]", phone);
     strcpy(student.personal.contact, phone);
+    break;
+  case 3:
+    printf("Enter address: ");
+    char addr[64];
+    scanf("\n%64[^\n]", addr);
+    strcpy(student.personal.address, addr);
+    break;
   case 4:
     printf("Enter assignment score: ");
     int input;
     scanf("%d", &input);
     student.university.assignment = input;
     student.university.total = calculate_grade_total(student);
+    break;
   case 5:
     printf("Enter midterm score: ");
     scanf("%d", &input);
     student.university.midterm = input;
     student.university.total = calculate_grade_total(student);
+    break;
   case 6:
     printf("Enter final score: ");
     scanf("%d", &input);
     student.university.final = input;
     student.university.total = calculate_grade_total(student);
+    break;
   }
 
   return student;

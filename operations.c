@@ -22,7 +22,8 @@ student_t create_student() {
 }
 
 void print_student(int n, student_t student) {
-  printf("Student Number: %d\n", n);
+  // add one to n because 0-base counting of arrays4
+  printf("Student Number: %d\n", n+1);
   printf("\tPersonal Details:\n");
   printf("\t\tName: %s\n", student.personal.name);
   printf("\t\tPhone Number: %s\n", student.personal.contact);
